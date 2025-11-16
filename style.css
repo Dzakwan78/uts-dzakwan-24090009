@@ -1,0 +1,477 @@
+:root {
+  --primary-color: #3498db; 
+  --secondary-color: #f8f9fa; 
+  --sidebar-blue: #3498db; 
+  --accent-yellow: #f1c40f; /* Kuning Emas untuk Total Revenue */
+  --bg-light: #f4f4f4; /* Background area utama (Alternatif) */
+  --gray-dark: #333; /* Warna teks gelap */
+  --gray-light: #ecf0f1; /* Untuk background aktif di card */
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --card-bg-color: #ffffff;
+  --text-dark: #212529;
+  --text-muted: #6c757d;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sidebar-width: 80px; /* Variabel yang tidak terlalu digunakan */
+}
+
+/* =======================================================
+    1. STYLING LOGIN PAGE
+   ======================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family); /* Gunakan variabel font */
+  background-color: #f4f7f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container utama (menggunakan Flexbox) */
+.login-container {
+  display: flex;
+  flex-direction: column-reverse;
+  max-width: 900px;
+  width: 90%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* --- Styling Ilustrasi (Sisi Kiri) --- */
+.login-illustration {
+  flex: 1;
+  background: url("https://img.freepik.com/free-vector/tablet-login-concept-illustration_114360-7963.jpg?w=2000")
+    no-repeat center center/cover;
+  background-color: #a8dadc;
+  display: none;
+  min-height: 200px;
+}
+
+.login-form {
+  padding: 40px;
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Input Group Styling */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Tombol Primary (Login) */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.social-login {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.social-login .btn {
+  flex: 1;
+  width: auto;
+  margin-top: 0;
+}
+
+.btn-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+/* Styling Separator "Or" (agar di tengah) */
+.separator {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+  color: #aaa;
+  z-index: 1;
+}
+
+.separator span {
+  background: #fff;
+  padding: 0 10px;
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+  z-index: -1;
+}
+
+.separator::before {
+  left: 0;
+}
+
+.separator::after {
+  right: 0;
+}
+
+.error-text {
+  text-align: center;
+  padding: 10px;
+  background-color: #ffebeb;
+  border: 1px solid #ff4d4d;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  color: #ff4d4d;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .login-container {
+    flex-direction: row;
+  }
+  .login-illustration {
+    display: block; /* Tampilkan ilustrasi */
+  }
+  .login-form {
+    flex: 1.2;
+  }
+}
+
+/* =======================================================
+    2. STYLING DASHBOARD & PRODUK (GLOBAL)
+   ======================================================= */
+/* ========== GLOBAL ========== */
+body {
+  /* Menggunakan body dari Login Page, tapi pastikan variabel font digunakan */
+  font-family: var(--font-family);
+  margin: 0;
+  background-color: var(--secondary-color); /* Menggunakan variabel konsolidasi */
+  color: var(--gray-dark);
+  overflow-x: hidden; 
+}
+
+h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+#wrapper, #main-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ========== SIDEBAR (Digunakan oleh Dashboard & Produk) ========== */
+#sidebar, #app-sidebar {
+  width: 200px;
+  background-color: var(--primary-color);
+  padding: 15px 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#sidebar nav, #app-sidebar nav {
+  width: 100%;
+}
+
+#sidebar nav ul, #app-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#sidebar nav ul li, #app-sidebar nav ul li {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#sidebar nav ul li a, #app-sidebar nav ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 12px 0;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.4em;
+  color: white;
+  opacity: 0.75;
+}
+
+#sidebar nav ul li a.active, #app-sidebar nav ul li a.active {
+  background-color: white;
+  color: var(--sidebar-blue);
+  opacity: 1;
+}
+
+/* ========== CONTENT (Dashboard) ========== */
+#content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: var(--secondary-color);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ========== SUMMARY CARDS (Dashboard) ========== */
+#summary-cards {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background-color: white;
+  padding: 25px 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  flex: 1 1 200px; 
+  min-width: 0; 
+  border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.card p {
+  color: #888;
+  font-size: 0.85em;
+  margin: 5px 0 5px 0;
+}
+
+.card h2 {
+  font-size: 1.9em;
+  /* PERBAIKAN: Menutup properti font-weight yang terpotong */
+  font-weight: 700; 
+}
+
+
+/* =======================================================
+    3. STYLING HALAMAN PRODUK
+   ======================================================= */
+
+/* --- Styling Khusus Halaman Produk --- */
+#main-content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: var(--secondary-color); 
+}
+
+#main-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: var(--text-dark);
+}
+
+/* Card kontainer untuk tabel (warna putih) */
+.product-data-card {
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+/* Bagian Aksi Tabel (Filter/Search/Pagination) */
+.table-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Placeholder untuk Filter/Search (sesuai gambar) */
+.filter-placeholder {
+  height: 30px;
+  width: 250px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+/* Placeholder untuk Pagination (sesuai gambar) */
+.pagination-placeholder {
+  height: 30px;
+  width: 150px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}
+
+/* Styling Tabel */
+.table-container {
+  overflow-x: auto; 
+}
+
+#data-product-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#data-product-table thead th {
+  background-color: #f8f9fa;
+  color: var(--text-dark);
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 2px solid #dee2e6;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#data-product-table tbody td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: middle;
+}
+
+#data-product-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Tombol Kembali ke Dashboard */
+.return-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #6c757d; 
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 15px;
+}
+
+.return-button:hover {
+  background-color: #5a6268;
+}
+
+
+/* =======================================================
+    4. MEDIA QUERY: RESPONSIF
+   ======================================================= */
+@media (max-width: 768px) {
+  /* Layout utama berubah menjadi vertikal (Dashboard & Produk) */
+  #wrapper, #main-wrapper {
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Sidebar menjadi horizontal menu (Dashboard & Produk) */
+  #sidebar, #app-sidebar {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px 0;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  #sidebar nav ul, #app-sidebar nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  #sidebar nav ul li, #app-sidebar nav ul li {
+    list-style: none;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  #sidebar nav ul li a, #app-sidebar nav ul li a {
+    width: 50px; /* Dikecilkan sedikit untuk ponsel */
+    height: 50px; /* Dikecilkan sedikit untuk ponsel */
+    margin: 8px; 
+    border-radius: 8px;
+    opacity: 0.8;
+  }
+
+  #sidebar nav ul li a.active, #app-sidebar nav ul li a.active {
+    background-color: white;
+    color: var(--sidebar-blue);
+    opacity: 1;
+  }
+
+  /* Konten utama (Dashboard & Produk) */
+  #content, #main-content {
+    margin: 10px;
+    width: 100%;
+    padding: 20px; /* Padding lebih kecil di mobile */
+  }
+
+  /* Cards vertikal (Dashboard) */
+  #summary-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .card {
+    width: 100%;
+    min-width: unset;
+    box-sizing: border-box;
+  }
+
+  /* Area kosong (Dashboard) */
+  .empty-area {
+    height: 100px;
+  }
+
+  /* Tabel di ponsel: Aksi tabel disusunan vertikal (Produk) */
+  .table-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .filter-placeholder,
+  .pagination-placeholder {
+    width: 100%;
+  }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <aside id="sidebar">
+        <nav>
+          <ul>
+            <li><a href="dashboard.html" class="active">🏠</a></li>
+            <li><a href="products.html">::</a></li>
+            <li><a href="#">$</a></li>
+            <li><a href="#">📈</a></li>
+            <li><a href="#">⚙️</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main id="content">
+        <h1>Dashboard</h1>
+
+        <section id="summary-cards">
+          <div class="card">
+            <span class="icon-bg product-icon">🛍️</span>
+            <p>Total Products</p>
+            <h2 id="total-products">120</h2>
+          </div>
+          <div class="card">
+            <span class="icon-bg sales-icon">🛍️</span>
+            <p>Total Sales</p>
+            <h2 id="total-sales">85</h2>
+          </div>
+          <div class="card">
+            <span class="icon-bg revenue-icon">$</span>
+            <p>Total Revenue</p>
+            <h2 id="total-revenue">Rp 12.500.000</h2>
+          </div>
+        </section>
+
+        <div class="empty-area"></div>
+
+        <button
+          onclick="window.location.href='products.html'"
+          id="dashboard-navigation-btn"
+          class="return-button"
+        >
+          Lihat Data Produk
+        </button>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
